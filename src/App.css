@@ -3,29 +3,15 @@ ul li {
 }
 
 .app-wrapper {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 1200px;
-}
-
-.nav {
-  width: 200px;
-  background-color: orange;
-}
-
-.header {
-  background-color: grey;
-  /*width: 600px;*/
-
-}
-
-.header img {
-  height: 100px;
+  width: 600px;
 }
 
 .content-wrapper {
   display: flex;
-  background-color: gold;
+  /*background-color: gold;*/
   flex-direction: row;
 }
 

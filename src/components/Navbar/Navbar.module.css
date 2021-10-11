@@ -1,0 +1,21 @@
+.item {
+    color: white;
+}
+
+.active {
+    color: gold;
+}
+
+.nav {
+    width: 200px;
+    background-color: orange;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav a.activeLink {
+    color: gold;
+}
