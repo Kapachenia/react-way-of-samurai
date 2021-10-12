@@ -1,10 +1,13 @@
-type StateType = {
+import {rerenderTree} from "../rerender";
+
+export type StateType = {
     profilePage: ProfilePageType
     messagesPage: MessasgesPageType
 }
 
 type ProfilePageType = {
     posts: Array<PostElType>
+    newPostText: string
 }
 
 type MessasgesPageType = {
@@ -28,13 +31,14 @@ export type MessageElType = {
     message: string
 }
 
-let state: StateType = {
+const state: StateType = {
     profilePage: {
         posts: [
             {id: 1, message: "Hello", likesCount: 12},
             {id: 2, message: "Hi", likesCount: 15},
             {id: 3, message: "Yo", likesCount: 2}
-        ]
+        ],
+        newPostText: 'enter message'
     },
     messagesPage: {
         messages: [
@@ -53,14 +57,20 @@ let state: StateType = {
     }
 }
 
-export const addPost = (postMessage: string) => {
+export const addPost = () => {
     const newPost: PostElType = {
         id: 4,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
 
     state.profilePage.posts.push(newPost)
+    rerenderTree(state)
+}
+
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderTree(state)
 }
 
 export default state
